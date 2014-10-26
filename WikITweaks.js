@@ -41,7 +41,7 @@ var actualCode = '(' + function() {
         var text = '';
         var n = 0;
         while ((n++) <= 50) {
-          text = $(data.find('#mw-content-text > p:nth-child('+n+')')[0]).text()
+          text = format(data.find('#mw-content-text > p:nth-child('+n+')')[0])
           if (text != '') {
             memCache[url] = text;
             return place(text);
@@ -49,6 +49,9 @@ var actualCode = '(' + function() {
         }
       });
     }
+  }
+  function format(html) {
+    return ($(html).text() || '').replace(/ *\[[^)]*\]*/g, "").replace(/ *\([^)]*\) */g, "")
   }
   function place(text) {
     preview.text(text)
