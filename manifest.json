@@ -1,0 +1,17 @@
+{
+  "name": "WikiTweaks",
+  "description": "Remove the stuff no one uses and can now preview webpages on hover.",
+  "version": "1.0",
+  "permissions": [
+    "http://en.wikipedia.org/*"
+  ],
+  "browser_action": {
+      "default_title": "Set this page's color.",
+      "default_icon": "icon.png"
+  },
+  "content_scripts": [{
+    "js" : ["WikiTweaks.js"],
+    "matches": ["http://en.wikipedia.org/*"]
+  }],
+  "manifest_version": 2
+}
