@@ -1,6 +1,16 @@
 var actualCode = '(' + function() {
   var memCache = {}
-  var search = $('#p-search');
+  var search = $('#p-search').css({float:'right','margin-right':0});
+  $('#simpleSearch').css({
+    'padding-right': 20,
+    'width': 100,
+    'margin-top': 5,
+    'margin-bottom': 5
+  });
+  $('#content').css({
+    'padding-top':0
+  })
+  $('.metadata').remove();
   var preview = $('<div>').attr({id:'preview'}).css({
       position:'absolute',
       width:300,
@@ -42,7 +52,7 @@ var actualCode = '(' + function() {
         var n = 0;
         while ((n++) <= 50) {
           text = format(data.find('#mw-content-text > p:nth-child('+n+')')[0])
-          if (text != '') {
+          if (text != '' && text.indexOf('Coordinates') != 0) {
             memCache[url] = text;
             return place(text);
           }
