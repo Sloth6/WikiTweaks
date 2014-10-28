@@ -15,7 +15,7 @@ chrome.storage.local.get(key, function(results){
   hist.forEach(function(url){
     var li = $( '<li>' ).append($("<a />", {
         href : url,
-        text : url.replace('http://en.wikipedia.org/wiki/','')
+        text : decodeURIComponent(url.replace('http://en.wikipedia.org/wiki/',''))
     }));
     ul.prepend(li);
   })
