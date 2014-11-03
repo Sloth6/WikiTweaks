@@ -1,7 +1,7 @@
 {
   "name": "WikiTweaks",
   "description": "A restyling of Wikipedia that saves screen space and adds on-hover previews.",
-  "version": "1.5",
+  "version": "1.6",
   "icons" : {
     "48": "icon48.png",
     "128": "icon128.png"
