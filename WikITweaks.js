@@ -1,13 +1,24 @@
-// var actualCode = '(' + function() {
 var memCache = {}
 var preview;
 var search = $('#p-search').css({float:'right','margin-right':0});
 var mouseX;
 var mouseY;
+var hoveredLink = null;
 
 reStylePage()
 addPageToHistory();
 createPreview()
+
+/*
+* The preview occasionally fails to close if moused over to quickly.
+* This fixes that.
+*/
+setInterval(function() {
+  if (hoveredLink == null) {
+    preview.hide();
+  }
+}, 200);
+
 
 function createPreview() {
   preview = $('<div>').attr({id:'preview'}).css({
@@ -28,19 +39,25 @@ function createPreview() {
   $(document).mousemove( function(e){
      mouseX = e.pageX; 
      mouseY = e.pageY;
-     // moveToMouse();
   });
 
   $('a').hover(function(){
     var link = this;
-    link.title = ''
+    //Remove default onhover text
+    link.title = '';
+    hoveredLink = $(this);
+    //Make sure its not a link to the same page.
     if (link.href.indexOf(document.location.href+'#') != 0) {
       var text = getText(link, function(text) {
-        place(text, $(link));
+        //Ensure the mouse is still over it.
+        if ($(link).is(':hover')) {
+          place(text, $(link));
+        }
       });
     }
   }, function(){
     preview.hide();
+    hoveredLink = null;
   });
 }
 
@@ -120,8 +137,3 @@ function addPageToHistory() {
     }
   });
 }
-// } + ')();';
-// var script = document.createElement('script');
-// script.textContent = actualCode;
-// (document.head||document.documentElement).appendChild(script);
-// script.parentNode.removeChild(script);
