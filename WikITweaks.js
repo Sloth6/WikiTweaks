@@ -62,6 +62,7 @@ function createPreview() {
 }
 
 function reStylePage() {
+  $('head link, head style').remove();
   $('#siteSub,#contentSub,.metadata').remove();
   $('#mw-head,#mw-page-base,#mw-panel').hide();
   $('#firstHeading').append(search)

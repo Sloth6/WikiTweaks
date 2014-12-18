@@ -1,0 +1,8 @@
+.noprint, #mw-navigation, #footer {
+    display: none;
+}
+
+.mw-body {
+    margin: 0 !important;
+    width: 50em;
+}
