@@ -1,6 +1,6 @@
 var memCache = {}
 var preview;
-var search = $('#p-search').css({float:'right','margin-right':0});
+var search = $('#p-search');
 var mouseX;
 var mouseY;
 var hoveredLink = null;
@@ -65,7 +65,7 @@ function reStylePage() {
   $('head link, head style').remove();
   $('#siteSub,#contentSub,.metadata').remove();
   $('#mw-head,#mw-page-base,#mw-panel').hide();
-  $('#firstHeading').append(search)
+  $('#firstHeading').append(search);
   $('#content').css('margin-left', 0);
   $('#simpleSearch').css({
     'padding-right': 20,
@@ -76,6 +76,9 @@ function reStylePage() {
   $('#content').css({
     'padding-top':0
   });
+  
+  var style = $('<link rel="stylesheet" href="./style/screen.css">');
+  $("head").append(style);
 }
 var f;
 function getText(link, cb) {

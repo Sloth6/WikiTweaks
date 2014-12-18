@@ -1,0 +1,29 @@
+body {
+    background: $colorWashMediumLight;
+    
+    #bodyContent {
+        width: $colGut * 4;
+        margin-left: $colGut * 2;
+        
+        .toc {
+            position: fixed;
+            display: none;
+            width: $colGut + $col;
+            top: $baseline;
+            left: $gutter;
+            height: 10vh;
+            overflow: hidden;
+//             overflow: scroll;
+        }
+        
+        p + p {
+            text-indent: 3em;
+        }
+        
+        .reference {
+            vertical-align: top;
+            font-size: .5em;
+            font-family: $fontBold;
+        }
+    }
+}
