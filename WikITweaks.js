@@ -128,6 +128,7 @@ function movePreviewToElement(elem) {
 }
 
 function addPageToHistory() {
+/*
   var key = 'wikiHistory';
   var loc = document.location.href
   chrome.storage.local.get(key, function(results){
@@ -140,4 +141,5 @@ function addPageToHistory() {
       chrome.storage.local.set({wikiHistory: JSON.stringify(hist)});
     }
   });
+*/
 }
